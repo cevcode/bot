@@ -15,7 +15,7 @@ const Button = ({ onClick, className, text, size, disabled, style, type }) => {
     );
 };
 
-Button.propTypes = {
+Button.PropTypes = {
     onClick: PropTypes.func,
     size: PropTypes.oneOf(['s', 'full']),
     text: PropTypes.string,

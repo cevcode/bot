@@ -11,7 +11,7 @@ const Title = ({ size = 'medium', children, align, tagName, extraCLass, containe
     );
 };
 
-Title.propTypes = {
+Title.PropTypes = {
     size: PropTypes.oneOf(['small', 'medium', 'x-medium', 'big']),
     align: PropTypes.oneOf(['left', 'center', 'right']),
     tagName: PropTypes.oneOf(['h1', 'h2']),

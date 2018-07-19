@@ -108,7 +108,7 @@ class Stops extends React.Component {
     }
 }
 
-Stops.propTypes = {
+Stops.PropTypes = {
     minStops: PropTypes.number,
     maxStops: PropTypes.number,
     stops: PropTypes.array,

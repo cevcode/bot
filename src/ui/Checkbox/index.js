@@ -32,7 +32,7 @@ Checkbox.defaultProps = {
     onChange: () => console.log('Checkbox: No onChange handler'),
 };
 
-Checkbox.propTypes = {
+Checkbox.PropTypes = {
     value: PropTypes.bool,
     label: PropTypes.string,
     onChange: PropTypes.func,

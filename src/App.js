@@ -19,7 +19,7 @@ class App extends Component {
     }
     // Task #6
     componentDidMount() {
-        const url = '/tickets.json';
+        const url = 'tickets.json';
         fetch(url)
             .then(response => response.json())
             .then(data =>
