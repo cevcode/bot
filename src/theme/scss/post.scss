@@ -1,0 +1,122 @@
+@import 'index.scss';
+
+.post {
+  width: rem(565px);
+  height: rem(160px);
+  background-color: $whiteColor;
+  border-radius: rem($borderRadius);
+  box-shadow: rem($shadow);
+  margin-bottom: rem(20px);
+  @include mobile {
+    width: 100%;
+    flex-direction: column;
+    height: auto;
+  }
+  &__icon {
+    width: rem(120px);
+    height: rem(35px);
+    position: relative;
+    @include mobile {
+      margin-bottom: rem(20px);
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: block;
+      top: 0;
+      left: 0;
+    }
+    &--tk {
+      &:before {
+        background-image: url('../img/tk.svg');
+        width: rem(120px);
+        height: rem(35px);
+      }
+    }
+    &--s7{
+      &:before {
+        background-image: url('../img/s7.svg');
+        width: rem(120px);
+        height: rem(35px);
+      }
+    }
+    &--su {
+      &:before {
+        background-image: url('../img/su.svg');
+        width: rem(120px);
+        height: rem(35px);
+      }
+    }
+    &--ba {
+      &:before {
+        background-image: url('../img/ba.svg');
+        width: rem(120px);
+        height: rem(35px);
+      }
+    }
+  }
+  &__column {
+    padding: rem(20px);
+    &:first-child {
+      min-width: rem(200px);
+      width: rem(200px);
+      border-right: rem(1px solid $borderColor);
+      align-items: center;
+      justify-content: space-between;
+      @include mobile {
+        min-width: inherit;
+        width: 100%;
+        order: 2;
+      }
+    }
+  }
+  &__date {
+    color: $secondaryColor;
+    font-size: rem(12px);
+    @include main-font(300);
+    margin-top: rem(5px);
+  }
+  &__time {
+    margin-bottom: rem(5px);
+  }
+  &__stops {
+    font-size: rem(10px);
+    color: $secondaryColor;
+    @include main-font(300);
+    text-transform: uppercase;
+    white-space: nowrap;
+    min-width: rem(75px);
+    margin-top: rem(7px);
+    position: relative;
+    &:after {
+      content: '';
+      position: absolute;
+      top: rem(20px);
+      left: rem(-15px);
+      width: calc(100% + 15px);
+      height: 1px;
+      background-color: #d2d5d6;
+    }
+    &:before {
+      content: '';
+      position: absolute;
+      top: rem(14px);
+      right: rem(-15px);
+      width: rem(13px);
+      height: rem(13px);
+      background-image: url('../img/plane.svg');
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+  &__dates {
+    &:last-child {
+      text-align: right;
+      h2 {
+        text-align: right;
+      }
+    }
+  }
+}

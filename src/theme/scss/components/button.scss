@@ -1,0 +1,77 @@
+@import '../index.scss';
+$transitionHover: ease-in 200ms;
+$transitionActive: ease-in 150ms;
+
+$btn-void: $accentColor, $whiteColor, #ff8124, $whiteColor, $accentColor, $whiteColor, $secondaryColor, $whiteColor;
+$btn-fill: $whiteColor, #2196f3, #f2fcff, $whiteColor, #2196f3, $whiteColor, $secondaryColor, $primaryColor;
+@mixin btn-style(
+  $colorBgDefault,
+  $colorDefault,
+  $colorBgHover,
+  $colorHover,
+  $colorBgActive,
+  $colorActive,
+  $colorBgDisabled,
+  $colorDisabled
+) {
+  background: $colorBgDefault;
+  color: $colorDefault;
+  &:hover {
+    background: $colorBgHover;
+  }
+
+  &:active {
+    background: $colorBgActive;
+    color: $colorActive;
+  }
+
+  &:disabled {
+    background: $colorBgDisabled;
+    cursor: not-allowed;
+    user-select: none;
+  }
+}
+
+.ux-button {
+  @include base-sizes();
+  height: rem(56px);
+  cursor: pointer;
+  font-size: rem(16px);
+  border-radius: rem(5px);
+  border: none;
+  text-transform: uppercase;
+  @include main-font(400);
+  &:focus {
+    outline: none;
+  }
+
+  &:hover {
+    transition: $transitionHover;
+  }
+
+  &:active {
+    transition: $transitionActive;
+  }
+
+  &__style {
+    &_void {
+      @include btn-style($btn-void...);
+      box-shadow: rem(0 2px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 0 0 #d64d08);
+      padding: rem(0 25px);
+      &:hover {
+        box-shadow: rem(0 1px 5px 0 rgba(0, 0, 0, 0.25), 0 1px 0 0 #f7661d);
+      }
+      @include mobile {
+        width: 100%;
+      }
+    }
+    &_fill {
+      @include btn-style($btn-fill...);
+      border: rem(1px solid #d2d5d6);
+      font-size: rem(12px);
+      &:hover {
+        border: rem(1px solid #64b5f5);
+      }
+    }
+  }
+}

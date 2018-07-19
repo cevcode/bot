@@ -1,0 +1,55 @@
+@import "../index.scss";
+
+.checkbox {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: flex-start;
+  position: relative;
+  margin: 0;
+  cursor: pointer;
+  padding: rem(0 15px);
+  min-height: rem(35px);
+  &__checkbox {
+    content: "";
+    position: relative;
+    width: rem(19px);
+    min-width: rem(19px);
+    height: rem(19px);
+    cursor: pointer;
+    background-color: $whiteColor;
+    border-radius: rem(3px);
+    border: rem(1px solid #d2d5d6);
+    background-size: rem(19px);
+    &_checked {
+      background-color: #f2fcff;
+      border: rem(1px solid $blueColor);
+      &:before {
+        content: '';
+        position: absolute;
+        width: rem(10px);
+        height: rem(14px);
+        top: rem(5px);
+        left: rem(5px);
+        background: url('../img/checkmark.svg');
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &__input {
+    display: none;
+    margin: 0;
+  }
+
+  &__label {
+    font-size: rem(13px);
+    color: $primaryColor;
+    @include main-font(500);
+    display: inline-block;
+    margin-left: rem(8px);
+    padding: 0;
+    cursor: pointer;
+  }
+}

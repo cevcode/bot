@@ -1,0 +1,178 @@
+@import 'index.scss';
+@import 'components/layout.scss';
+@import 'components/description.scss';
+@import 'components/title.scss';
+@import 'components/button.scss';
+@import 'components/checkbox.scss';
+@import 'components/header.scss';
+@import 'post.scss';
+
+
+h1,h2,h3,h4,h5,h6,p {
+  padding: 0;
+  margin: 0;
+  font-size: rem(16px);
+}
+ul,ol {
+  padding: 0;
+  margin: 0;
+  font-size: 0;
+}
+div {
+  &:focus {
+    outline: 0;
+  }
+}
+a {
+  text-decoration: none;
+  color: $primaryColor;
+  font-size: rem(16px);
+}
+body {
+  font-size: rem(13px);
+  @include main-font(500);
+  background-color: #F3F7FA;
+  padding-top: rem(35px);
+}
+
+html {
+  @include rem-baseline;
+  @include tablet {
+    @include rem-baseline(80%);
+  }
+}
+input {
+  padding: 0;
+  border-width: 0;
+  &:focus {
+    outline: 0;
+  }
+}
+.container {
+  width: rem(820px);
+  margin: auto;
+  @include tablet-small {
+    width: 100%;
+  }
+}
+
+.filter {
+  min-width: rem(230px);
+  margin-right: rem(20px);
+  @include tablet-small {
+    max-width: rem(565px);
+    margin: auto;
+  }
+  @include mobile {
+    max-width: none;
+    min-width: inherit;
+    width: 100%;
+  }
+  &__inner {
+    background-color: $whiteColor;
+    box-shadow: rem($shadow);
+    border-radius: rem($borderRadius);
+    padding-bottom: rem(15px);
+    @include tablet-small {
+      display: flex;
+    }
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+}
+.currency {
+  padding: rem(15px);
+  &__controls {
+    height: rem(40px);
+    margin-top: rem(10px);
+  }
+  &__button {
+    &:first-child {
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+    &:nth-child(2) {
+      border-radius: 0;
+      border-left: none;
+      border-right: none;
+    }
+    &:last-child {
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+    &--active {
+      background-color: #2196f3;
+      border: rem(1px solid transparent);
+      color: $whiteColor;
+      &:hover {
+        color: $whiteColor;
+        background-color: #2196f3;
+      }
+    }
+  }
+}
+
+.stops {
+  &__title {
+    padding: rem(15px);
+    text-transform: uppercase;
+  }
+  &__row {
+    position: relative;
+    width: 100%;
+    cursor: pointer;
+    &:hover {
+      background-color: #f1fcff;
+    }
+  }
+  &__button {
+    position: absolute;
+    top: rem(12px);
+    right: rem(10px);
+    background-color: transparent;
+    color: #2196f3;
+    text-transform: uppercase;
+    font-size: rem(11px);
+    cursor: pointer;
+    border: none;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.posts {
+  @include tablet-small {
+    width: rem(565px);
+    margin: 20px auto;
+  }
+  @include mobile {
+    width: 100%;
+  }
+  &__empty {
+    display: flex;
+    justify-content: center;
+    min-width: rem(565px);
+    align-items: center;
+    @include tablet-small {
+      .title__container {
+        margin-top: rem(40px);
+      }
+    }
+    @include mobile {
+      width: 100%;
+      min-width: inherit;
+    }
+  }
+}
+
+.content {
+  @include tablet-small {
+    flex-direction: column;
+  }
+}
+

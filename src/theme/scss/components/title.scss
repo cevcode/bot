@@ -1,0 +1,36 @@
+@import '../index.scss';
+
+.title {
+  &__container {
+    h1, h2 {
+      @include main-font(400);
+      letter-spacing: rem(1.2px);
+      color: $primaryColor;
+    }
+  }
+  &__size {
+    &_big {
+      font-size: rem(48px);
+    }
+    &_medium {
+      font-size: rem(36px);
+    }
+    &_x-medium {
+      font-size: rem(32px);
+    }
+    &_small {
+      font-size:  rem(24px);
+    }
+  }
+  &__align {
+    &_left {
+      text-align: left;
+    }
+    &_center {
+      text-align: center;
+    }
+    &_right {
+      text-align: right;
+    }
+  }
+}
