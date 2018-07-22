@@ -1,11 +1,11 @@
 import React from 'react';
+import cx from 'classnames';
 import { Column, Row } from 'ui/Layout';
 import Button from 'ui/Button';
 import Title from 'ui/Title';
 import Description from 'ui/Description';
-import cx from 'classnames';
-import { showSymbol, prettifyDate, numberText, formattedPrice } from 'helpers';
 import {EUR, RUB, USD} from "../../currency/code";
+import { showSymbol, prettifyDate, numberText, formattedPrice } from 'helpers';
 
 //rates from central bank 19.07
 const rate = {
@@ -15,13 +15,11 @@ const rate = {
 };
 
 class Post extends React.Component {
-    constructor(props) {
-        super(props);
 
-    }
     renderCarrier = carrier => {
         return <i className={cx('post__icon', `post__icon--${carrier.toLowerCase()}`)} />;
     };
+
     renderPostDates = (time, name, date, origin) => {
         const description = `${origin}, ${name}`;
         return (
@@ -32,6 +30,7 @@ class Post extends React.Component {
             </Column>
         );
     };
+
     render() {
         const {
             departure_time,
@@ -47,8 +46,10 @@ class Post extends React.Component {
             stops,
             currency,
         } = this.props;
+
         const buttonText = formattedPrice((price * rate[currency])) + showSymbol(currency);
         const stopsCount = stops ? stops + numberText(stops, [' Пересадка', ' Пересадки', ' Пересадок']) : null;
+
         return (
             <Row className="post">
                 <Column className="post__column">

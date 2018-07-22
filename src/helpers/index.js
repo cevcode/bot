@@ -21,12 +21,13 @@ export const showSymbol = currency => {
             return '€';
         case 'USD':
             return '$';
+        default:
+            return '₽'
     }
-    return currency;
 };
 
 export const prettifyDate = date => {
-    return moment(date)
+    return moment(date.replace(/\./g, '-'), 'DD-MM-YY')
         .locale('ru')
         .format('d MMM, YYYY, ddd');
 };
@@ -39,4 +40,6 @@ export const numberText = (number, titles) => {
 export const formattedPrice = price => {
     return numeral(price).format('0,0').replace(',', ' ');
 };
+
+
 

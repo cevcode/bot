@@ -1,9 +1,8 @@
 import React from 'react';
+import cx from 'classnames';
 import { Column, Row } from 'ui/Layout';
 import Button from 'ui/Button';
-import cx from 'classnames';
 import Description from 'ui/Description';
-import { showSymbol } from 'helpers';
 import {RUB, EUR, USD } from '../../currency/code';
 
 const config = [RUB, EUR, USD];

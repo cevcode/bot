@@ -5,27 +5,21 @@ import PropTypes from 'prop-types';
 import { numberText } from 'helpers';
 import Description from 'ui/Description';
 
-const config = ['пересадка', 'пересадки', 'пересадок'];
-
 //Task #2
 
 class Stops extends React.Component {
-    constructor(props) {
-        super(props);
 
-    }
     static getDerivedStateFromProps(nextProps) {
-        const { minStops, maxStops } = nextProps;
-        const scope = [];
 
-        if (minStops === null || maxStops === null) {
-            return scope;
-        } else {
+        const { minStops = null, maxStops = null } = nextProps;
+        const scope = [];
+        if (minStops || maxStops) {
             for (let i = minStops; i <= maxStops; i++) {
                 scope.push(i);
             }
-            return { scope };
+            return {scope};
             }
+        return scope
         }
 
     state = {
@@ -44,12 +38,7 @@ class Stops extends React.Component {
         const idx = stops.indexOf(count);
 
         if (idx !== -1) {
-            onChange(
-                [
-                    ...stops.slice(0, idx),
-                    ...stops.slice(idx + 1),
-                ]
-            );
+            onChange([...stops.slice(0, idx), ...stops.slice(idx + 1)]);
         } else {
             onChange([...stops, count]);
         }
@@ -62,17 +51,16 @@ class Stops extends React.Component {
     };
 
     showLabel(count) {
-        if (count === 0) {
-            return `Без ${numberText(count, config)}`;
+        if (!count) {
+            return 'Без пересадок';
         }
 
-        return `${count} ${numberText(count, config)}`;
+        return `${count} ${numberText(count, [' Пересадка', ' Пересадки', ' Пересадок'])}`;
     }
 
     render() {
         const { stops } = this.props;
         const { scope } = this.state;
-        const all = stops.length === scope.length;
 
         return (
             <Column className="stops">
@@ -80,7 +68,7 @@ class Stops extends React.Component {
                 <Column>
                 <Row className="stops__row">
                     <Checkbox
-                        value={all}
+                        value={stops.length === scope.length}
                         onChange={this.showAll}
                         label="Все"
                     />
@@ -89,7 +77,7 @@ class Stops extends React.Component {
                     scope.map((count, i) => (
                         <Row className="stops__row" key={i}>
                             <Checkbox
-                                value={stops.includes(count)}
+                                value={stops.indexOf(count) !== -1}
                                 onChange={() => this.onChange(count)}
                                 label={this.showLabel(count)}
                             />

@@ -6,7 +6,6 @@ import { RUB } from './currency/code';
 
 import 'theme/scss/App.scss';
 
-
 class App extends Component {
     constructor(props) {
         super(props);
@@ -17,18 +16,19 @@ class App extends Component {
             stops: [],
         };
     }
+
+    async fetchAsync (url) {
+        let response = await fetch(url);
+        let data = await response.json();
+        this.setState({
+            tickets: data.tickets,
+            stops: [...new Set(data.tickets.map(ticket => ticket.stops))],
+        });
+    }
+
     // Task #6
     componentDidMount() {
-        const url = 'tickets.json';
-        fetch(url)
-            .then(response => response.json())
-            .then(data =>
-                this.setState({
-                    tickets: data.tickets,
-                    stops: [...new Set(data.tickets.map(ticket => ticket.stops))],
-                })
-            )
-            .catch(error => console.log(error));
+        this.fetchAsync('tickets.json');
     }
 
     onChangeStops = stops => {
