@@ -1,0 +1,14 @@
+.balance {
+  padding: 0 30px;
+
+  &__data {
+    align-items: flex-end;
+  }
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    max-width: 240px;
+  }
+}

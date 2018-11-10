@@ -2,8 +2,8 @@
 $transitionHover: ease-in 200ms;
 $transitionActive: ease-in 150ms;
 
-$btn-void: $accentColor, $whiteColor, #ff8124, $whiteColor, $accentColor, $whiteColor, $secondaryColor, $whiteColor;
-$btn-fill: $whiteColor, #2196f3, #f2fcff, $whiteColor, #2196f3, $whiteColor, $secondaryColor, $primaryColor;
+$btn-void: transparent, transparent, transparent, transparent, transparent, transparent, transparent, transparent;
+$btn-fill: transparent, $primaryColor, #232c3e, $secondaryColor, rgba( 255, 255, 255, 0.2), $secondaryColor, $primaryColor, $primaryColor;
 @mixin btn-style(
   $colorBgDefault,
   $colorDefault,
@@ -34,13 +34,12 @@ $btn-fill: $whiteColor, #2196f3, #f2fcff, $whiteColor, #2196f3, $whiteColor, $se
 
 .ux-button {
   @include base-sizes();
-  height: rem(56px);
+  height: 50px;
   cursor: pointer;
-  font-size: rem(16px);
-  border-radius: rem(5px);
+  font-size: 24px;
+  border-radius: 25px;
   border: none;
-  text-transform: uppercase;
-  @include main-font(400);
+  @include main-font(500);
   &:focus {
     outline: none;
   }
@@ -56,21 +55,12 @@ $btn-fill: $whiteColor, #2196f3, #f2fcff, $whiteColor, #2196f3, $whiteColor, $se
   &__style {
     &_void {
       @include btn-style($btn-void...);
-      box-shadow: rem(0 2px 1px 0 rgba(0, 0, 0, 0.1), 0 1px 0 0 #d64d08);
-      padding: rem(0 25px);
-      &:hover {
-        box-shadow: rem(0 1px 5px 0 rgba(0, 0, 0, 0.25), 0 1px 0 0 #f7661d);
-      }
-      @include mobile {
-        width: 100%;
-      }
     }
     &_fill {
+      border: 1px solid #242f42;
       @include btn-style($btn-fill...);
-      border: rem(1px solid #d2d5d6);
-      font-size: rem(12px);
-      &:hover {
-        border: rem(1px solid #64b5f5);
+      &:active {
+        border: 1px solid #8e939b;
       }
     }
   }

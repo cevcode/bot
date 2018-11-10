@@ -1,83 +1,47 @@
-import React, { Component } from 'react';
-import Filter from 'modules/filters';
-import Posts from 'modules/posts';
-import { Column, Row } from 'ui/Layout';
-import { RUB } from './currency/code';
+import React from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
+import Header from "./modules/Header";
+import Menu from './modules/Menu';
+import Sidebar from './modules/Sidebar';
+
+import routes from './routes';
 import 'theme/scss/App.scss';
 
-class App extends Component {
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            currency: RUB,
-            tickets: [],
-            stops: [],
-        };
-    }
-
-    async fetchAsync (url) {
-        let response = await fetch(url);
-        let data = await response.json();
-        this.setState({
-            tickets: data.tickets,
-            stops: [...new Set(data.tickets.map(ticket => ticket.stops))],
-        });
-    }
-
-    // Task #6
-    componentDidMount() {
-        this.fetchAsync('tickets.json');
-    }
-
-    onChangeStops = stops => {
-        this.setState({ stops });
+class App extends React.PureComponent {
+    state = {
+      isOpen: false,
     };
-    // Task #3
-    onChangeCur = currency => {
-        this.setState({ currency });
+
+    onSidebarClick = isOpen => {
+        this.setState({ isOpen });
     };
 
     render() {
-        const { tickets, currency, stops } = this.state;
-        const newTickets = tickets
-            .filter(ticket => stops.includes(ticket.stops))
-            .map(ticket => ({
-                ...ticket,
-                currency,
-            }));
-        const { minStops, maxStops } = tickets.reduce((prev, ticket) => {
-            if (!prev.minStops || prev.minStops > ticket.stops) {
-                prev.minStops = ticket.stops;
-            }
-
-            if (!prev.maxStops || prev.maxStops < ticket.stops) {
-                prev.maxStops = ticket.stops;
-            }
-
-            return prev;
-        }, {});
-
+        const { isOpen } = this.state;
         return (
-            <div className="App">
-                <Column className="container">
-                    <div className="header">
-                        <i className="logo" />
-                    </div>
-                    <Row className="content">
-                        <Filter
-                            currency={currency}
-                            minStops={minStops}
-                            maxStops={maxStops}
-                            stops={stops}
-                            onChangeCur={this.onChangeCur}
-                            onChangeStops={this.onChangeStops}
-                        />
-                        <Posts currency={currency} tickets={newTickets} />
-                    </Row>
-                </Column>
-            </div>
+            <Router>
+                <div className="App" id="outer-container">
+                    <Sidebar isOpen={isOpen}
+                             onSidebarClick={this.onSidebarClick}
+                             pageWrapId="page-wrap"
+                             outerContainerId="outer-container"
+                    />
+                    <main id="page-wrap">
+                        <Header onSidebarClick={this.onSidebarClick} />
+                        {routes.map(route =>
+                            <Route key={route.path}
+                                   path={route.path}
+                                   exact={route.exact}
+                                   component={route.component}
+                                   onSidebarClick={this.onSidebarClick}
+                            />
+                        )}
+                        <Menu onSidebarClick={this.onSidebarClick} />
+                    </main>
+                </div>
+            </Router>
         );
     }
 }

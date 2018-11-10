@@ -1,0 +1,23 @@
+@import '../index.scss';
+
+.filter {
+  padding: 30px;
+  align-items: center;
+  justify-content: space-between;
+  .title__container {
+    width: 160px;
+  }
+  &__container {
+    justify-content: flex-end;
+    .ux-button {
+      margin-right: 20px;
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  &_active {
+    border: 1px solid $secondaryColor;
+    color: $secondaryColor;
+  }
+}

@@ -1,19 +1,49 @@
 //base colors
 
-$primaryColor: #4a4a4a;
-$secondaryColor: #8b9497;
-$accentColor: #ff6d00;
-$whiteColor: #fff;
-$shadow: 0 1px 4px 0 rgba(91, 137, 164, 0.25);
+$primaryColor: #424f65;
+$secondaryColor: #fff;
+$thirdlyColor: #273246;
+$colorGreen: #78a659;
+$colorOrange: #e4972d;
+$colorBg: #1d2637;
 $borderRadius: 5px;
-$borderColor: #eceff1;
-$blueColor: #2196f3;
 
 @mixin main-font($weight) {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: $weight;
 }
 
+// Responsive settings
+$screenSizes: (
+        tablet: 750px,
+);
+
+@mixin screen-gt($name) {
+  @media only screen and (min-width: #{map-get($screenSizes, $name)}) {
+    @content;
+  }
+}
+
+@mixin screen-lt($name) {
+  @media only screen and (max-width: #{map-get($screenSizes, $name)}) {
+    @content;
+  }
+}
+
+@mixin base-sizes() {
+  &__size {
+    &_s {
+      width: 50px;
+    }
+    &_m {
+      width: 120px;
+    }
+    &_full {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
 
 // Convertation px to rem settings
 $rem-baseline: 16px;
@@ -87,37 +117,3 @@ $rem-px-only: false !default;
   }
 }
 
-// Responsive settings
-$tablet: 992px;
-$tablet-small: 670px;
-$mobile: 480px;
-
-@mixin tablet {
-  @media only screen and (max-width: #{$tablet}) {
-    @content;
-  }
-}
-
-@mixin tablet-small {
-  @media only screen and (max-width: #{$tablet-small}) {
-    @content;
-  }
-}
-
-@mixin mobile {
-  @media only screen and (max-width: #{$mobile}) {
-    @content;
-  }
-}
-
-@mixin base-sizes() {
-  &__size {
-    &_s {
-      width: rem(160px);
-    }
-    &_full {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}

@@ -1,0 +1,24 @@
+@import '../index.scss';
+
+
+.price {
+  display: flex;
+  align-items: center;
+  color: $secondaryColor;
+  @include main-font(700);
+  text-transform: uppercase;
+
+  &__size {
+    &_l {
+      font-size: 66px;
+      letter-spacing: -1;
+    }
+    &_s {
+      font-size: 24px;
+    }
+  }
+}
+
+.currency {
+  margin-left: 15px;
+}

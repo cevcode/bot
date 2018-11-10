@@ -4,22 +4,22 @@
   &__container {
     h1, h2 {
       @include main-font(400);
-      letter-spacing: rem(1.2px);
+      letter-spacing: 0;
       color: $primaryColor;
     }
   }
   &__size {
     &_big {
-      font-size: rem(48px);
+      font-size: 48px;
     }
     &_medium {
-      font-size: rem(36px);
+      font-size: 36px;
     }
     &_x-medium {
-      font-size: rem(32px);
+      font-size: 34px;
     }
     &_small {
-      font-size:  rem(24px);
+      font-size:  24px;
     }
   }
   &__align {
@@ -32,5 +32,12 @@
     &_right {
       text-align: right;
     }
+  }
+  &_bold {
+    font-weight: 700 !important;
+  }
+
+  &_uppercase {
+    text-transform: uppercase;
   }
 }

@@ -27,7 +27,7 @@ class Layout extends React.PureComponent {
 }
 
 Layout.displayName = 'Layout';
-Layout.PropTypes = {
+Layout.propTypes = {
     noFlex: PropTypes.bool,
     hidden: PropTypes.bool,
     multiStr: PropTypes.bool,

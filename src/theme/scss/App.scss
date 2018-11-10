@@ -3,15 +3,20 @@
 @import 'components/description.scss';
 @import 'components/title.scss';
 @import 'components/button.scss';
-@import 'components/checkbox.scss';
 @import 'components/header.scss';
-@import 'post.scss';
+@import 'components/price.scss';
+@import 'components/balance.scss';
+@import 'components/charts.scss';
+@import 'components/bot.scss';
+@import 'components/filter.scss';
+@import 'components/menu.scss';
+@import 'components/page.scss';
 
 
 h1,h2,h3,h4,h5,h6,p {
   padding: 0;
   margin: 0;
-  font-size: rem(16px);
+  font-size: 16px;
 }
 ul,ol {
   padding: 0;
@@ -26,21 +31,19 @@ div {
 a {
   text-decoration: none;
   color: $primaryColor;
-  font-size: rem(16px);
-}
-body {
-  font-size: rem(13px);
-  @include main-font(500);
-  background-color: #F3F7FA;
-  padding-top: rem(35px);
+  font-size: 16px;
 }
 
-html {
-  @include rem-baseline;
-  @include tablet {
-    @include rem-baseline(80%);
-  }
+body {
+  margin: 0;
+  font-size: 13px;
+  @include main-font(500);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #161c25;
 }
+
 input {
   padding: 0;
   border-width: 0;
@@ -48,131 +51,39 @@ input {
     outline: 0;
   }
 }
-.container {
-  width: rem(820px);
-  margin: auto;
-  @include tablet-small {
-    width: 100%;
+#root {
+  width: 100%;
+  @include screen-gt(tablet) {
+    width: 750px;
   }
 }
+.App {
+  width: 100%;
+  background-color: $colorBg;
+  position: relative;
+  overflow: hidden;
 
-.filter {
-  min-width: rem(230px);
-  margin-right: rem(20px);
-  @include tablet-small {
-    max-width: rem(565px);
-    margin: auto;
-  }
-  @include mobile {
-    max-width: none;
-    min-width: inherit;
-    width: 100%;
-  }
-  &__inner {
-    background-color: $whiteColor;
-    box-shadow: rem($shadow);
-    border-radius: rem($borderRadius);
-    padding-bottom: rem(15px);
-    @include tablet-small {
-      display: flex;
-    }
-    @include mobile {
-      flex-direction: column;
-    }
-  }
-}
-.currency {
-  padding: rem(15px);
-  &__controls {
-    height: rem(40px);
-    margin-top: rem(10px);
-  }
-  &__button {
-    &:first-child {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-    &:nth-child(2) {
-      border-radius: 0;
-      border-left: none;
-      border-right: none;
-    }
-    &:last-child {
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
-    &--active {
-      background-color: #2196f3;
-      border: rem(1px solid transparent);
-      color: $whiteColor;
-      &:hover {
-        color: $whiteColor;
-        background-color: #2196f3;
-      }
-    }
-  }
-}
-
-.stops {
-  &__title {
-    padding: rem(15px);
-    text-transform: uppercase;
-  }
-  &__row {
-    position: relative;
-    width: 100%;
-    cursor: pointer;
-    &:hover {
-      background-color: #f1fcff;
-    }
-  }
-  &__button {
+  &:before {
+    content: '';
     position: absolute;
-    top: rem(12px);
-    right: rem(10px);
-    background-color: transparent;
-    color: #2196f3;
-    text-transform: uppercase;
-    font-size: rem(11px);
-    cursor: pointer;
-    border: none;
-    &:focus {
-      outline: none;
-    }
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-}
-
-.posts {
-  @include tablet-small {
-    width: rem(565px);
-    margin: 20px auto;
-  }
-  @include mobile {
+    top: 0;
+    left: 0;
     width: 100%;
-  }
-  &__empty {
-    display: flex;
-    justify-content: center;
-    min-width: rem(565px);
-    align-items: center;
-    @include tablet-small {
-      .title__container {
-        margin-top: rem(40px);
-      }
-    }
-    @include mobile {
-      width: 100%;
-      min-width: inherit;
-    }
+    height: 179px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../img/shadow.png');
   }
 }
 
-.content {
-  @include tablet-small {
-    flex-direction: column;
-  }
+.bm-menu-wrap {
+  position: absolute !important;
 }
 
+.bm-cross {
+  display: none;
+}
+
+.bm-burger-button {
+  display: none;
+}
