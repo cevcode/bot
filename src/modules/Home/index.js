@@ -15,17 +15,18 @@ class Home extends React.Component {
             activeBot: 'yellow_bot',
         };
     }
+
+
+    async fetchAsync (url) {
+        let response = await fetch(url);
+        let data = await response.json();
+        this.setState({
+            data: data,
+        });
+    }
+
     componentDidMount() {
-        const url = '/data.json';
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                    this.setState({
-                        data: data,
-                    })
-                }
-            )
-            .catch(error => console.log(error));
+        this.fetchAsync('data.json');
     }
 
     onChangeFilter = activeFilter => {
