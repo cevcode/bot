@@ -13,38 +13,6 @@ $borderRadius: 5px;
   font-weight: $weight;
 }
 
-// Responsive settings
-$screenSizes: (
-        tablet: 750px,
-);
-
-@mixin screen-gt($name) {
-  @media only screen and (min-width: #{map-get($screenSizes, $name)}) {
-    @content;
-  }
-}
-
-@mixin screen-lt($name) {
-  @media only screen and (max-width: #{map-get($screenSizes, $name)}) {
-    @content;
-  }
-}
-
-@mixin base-sizes() {
-  &__size {
-    &_s {
-      width: 50px;
-    }
-    &_m {
-      width: 120px;
-    }
-    &_full {
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
-
 // Convertation px to rem settings
 $rem-baseline: 16px;
 $rem-fallback: false !default;
@@ -113,6 +81,38 @@ $rem-px-only: false !default;
       @if not $rem-px-only {
         #{$property}: rem-convert(rem, $values...);
       }
+    }
+  }
+}
+
+// Responsive settings
+$screenSizes: (
+        tablet: rem(750px),
+);
+
+@mixin screen-gt($name) {
+  @media only screen and (min-width: #{map-get($screenSizes, $name)}) {
+    @content;
+  }
+}
+
+@mixin screen-lt($name) {
+  @media only screen and (max-width: #{map-get($screenSizes, $name)}) {
+    @content;
+  }
+}
+
+@mixin base-sizes() {
+  &__size {
+    &_s {
+      width: rem(50px);
+    }
+    &_m {
+      width: rem(120px);
+    }
+    &_full {
+      width: 100%;
+      height: 100%;
     }
   }
 }

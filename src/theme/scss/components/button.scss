@@ -34,10 +34,10 @@ $btn-fill: transparent, $primaryColor, #232c3e, $secondaryColor, rgba( 255, 255,
 
 .ux-button {
   @include base-sizes();
-  height: 50px;
+  height: rem(50px);
   cursor: pointer;
-  font-size: 24px;
-  border-radius: 25px;
+  font-size: rem(24px);
+  border-radius: rem(25px);
   border: none;
   @include main-font(500);
   &:focus {

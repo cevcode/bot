@@ -1,10 +1,10 @@
 @import '../index.scss';
 
 .page {
-  min-height: 1009px;
+  min-height: rem(1009px);
   display: flex;
   align-items: center;
   justify-content: center;
   color: $secondaryColor;
-  font-size: 24px;
+  font-size: rem(24px);
 }

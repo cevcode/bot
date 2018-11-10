@@ -10,15 +10,15 @@
 
   &__size {
     &_l {
-      font-size: 66px;
+      font-size: rem(66px);
       letter-spacing: -1;
     }
     &_s {
-      font-size: 24px;
+      font-size: rem(24px);
     }
   }
 }
 
 .currency {
-  margin-left: 15px;
+  margin-left: rem(15px);
 }

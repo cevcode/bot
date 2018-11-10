@@ -10,16 +10,16 @@
   }
   &__size {
     &_big {
-      font-size: 48px;
+      font-size: rem(48px);
     }
     &_medium {
-      font-size: 36px;
+      font-size: rem(36px);
     }
     &_x-medium {
-      font-size: 34px;
+      font-size: rem(34px);
     }
     &_small {
-      font-size:  24px;
+      font-size:  rem(24px);
     }
   }
   &__align {

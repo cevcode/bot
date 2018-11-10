@@ -9,14 +9,14 @@ $colorMinus: #c94378;
   &__item {
     width: calc(100%/3 - 4px/3);
     background: $BgColor;
-    height: 210px;
-    margin-right: 2px;
-    margin-bottom: 2px;
+    height: rem(210px);
+    margin-right: rem(2px);
+    margin-bottom: rem(2px);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: rem(5px);
 
     &_active {
       background: radial-gradient(#182035, #283750);
@@ -30,38 +30,38 @@ $colorMinus: #c94378;
   &__image {
 
     &-container {
-      max-width:  90px;
-      min-height: 90px;
+      max-width:  rem(90px);
+      min-height: rem(90px);
     }
   }
 
   &__list {
     flex-wrap: wrap;
-    margin-top: 20px;
-    padding: 0 30px;
+    margin-top: rem(20px);
+    padding: rem(0 30px);
 
     &_empty {
       color: $primaryColor;
-      font-size: 20px;
+      font-size: rem(20px);
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100px;
+      height: rem(100px);
     }
   }
 
   &__title {
-    font-size: 20px;
+    font-size: rem(20px);
     @include main-font(700);
     color: $secondaryColor;
     text-transform: uppercase;
-    margin-top: 5px;
+    margin-top: rem(5px);
   }
 
 }
 
 .percent {
-  font-size: 20px;
+  font-size: rem(20px);
   @include main-font(600);
   &_plus {
     color: $colorPlus;
