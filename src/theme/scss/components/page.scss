@@ -1,10 +1,13 @@
 @import '../index.scss';
 
 .page {
-  min-height: rem(1009px);
+  height: 81.5%;
   display: flex;
   align-items: center;
   justify-content: center;
   color: $secondaryColor;
   font-size: rem(24px);
+  @include screen-gt(tablet) {
+    height: 80vh;
+  }
 }

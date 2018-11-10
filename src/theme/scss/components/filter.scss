@@ -4,13 +4,22 @@
   padding: rem(30px);
   align-items: center;
   justify-content: space-between;
+  @include screen-lt(mobile) {
+    height: 9vh;
+  }
   .title__container {
     width: rem(160px);
+    @include screen-lt(mobile) {
+      display: none;
+    }
   }
   &__container {
     justify-content: flex-end;
     .ux-button {
       margin-right: rem(20px);
+      @include screen-lt(mobile) {
+        margin-right: rem(10px);
+      }
       &:last-child {
         margin-right: 0;
       }

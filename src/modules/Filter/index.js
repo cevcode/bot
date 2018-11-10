@@ -28,7 +28,7 @@ function getActiveButton(value, filterValue) {
 function Filter({ activeFilter, onChangeFilter }) {
     return (
         <Row className="filter">
-            <Title size="small" bold>Time range:</Title>
+            <Title size="small" bold>Range:</Title>
             <Row className="filter__container">
                 {config.map(item =>
                     <Button key={item.value}

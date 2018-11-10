@@ -1,4 +1,20 @@
 @import '../index.scss';
+
+@mixin before($width, $height, $bgImage) {
+  position: relative;
+  &:before {
+    content: '';
+    top: 0;
+    left: 0;
+    background-size: contain;
+    width: rem($width);
+    height: rem($height);
+    background-repeat: no-repeat;
+    background-image: url($bgImage);
+    display: flex;
+  }
+}
+
 $transitionHover: ease-in 200ms;
 $transitionActive: ease-in 150ms;
 
@@ -62,6 +78,21 @@ $btn-fill: transparent, $primaryColor, #232c3e, $secondaryColor, rgba( 255, 255,
       &:active {
         border: 1px solid #8e939b;
       }
+    }
+  }
+  &__image {
+    max-width:  100%;
+    max-height: 100%;
+  }
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &_menu {
+      @include before(35px, 24px, '../img/menu_icon.svg');
+    }
+    &_refresh {
+      @include before(32px, 32px, '../img/refresh_icon.svg');
     }
   }
 }

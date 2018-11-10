@@ -9,10 +9,11 @@ $colorMinus: #c94378;
   &__item {
     width: calc(100%/3 - 4px/3);
     background: $BgColor;
-    height: rem(210px);
+    height: calc(100%/2 - 2px);
     margin-right: rem(2px);
     margin-bottom: rem(2px);
     display: flex;
+    padding: 10px;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -28,10 +29,12 @@ $colorMinus: #c94378;
   }
 
   &__image {
-
+    width: 100%;
+    height: 100%;
     &-container {
       max-width:  rem(90px);
       min-height: rem(90px);
+      max-height: rem(90px);
     }
   }
 
@@ -39,6 +42,9 @@ $colorMinus: #c94378;
     flex-wrap: wrap;
     margin-top: rem(20px);
     padding: rem(0 30px);
+    @include screen-lt(mobile) {
+      height: 40%;
+    }
 
     &_empty {
       color: $primaryColor;

@@ -12,6 +12,9 @@
     &_l {
       font-size: rem(66px);
       letter-spacing: -1;
+      @include screen-lt(tablet) {
+        font-size: rem(40px);
+      }
     }
     &_s {
       font-size: rem(24px);
@@ -21,4 +24,8 @@
 
 .currency {
   margin-left: rem(15px);
+  &_imaged {
+    width: rem(30px);
+    height: rem(30px);
+  }
 }

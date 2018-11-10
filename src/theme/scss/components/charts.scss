@@ -1,4 +1,11 @@
+@import '../index.scss';
+
+
 .charts {
-    width: 100%;
+    display: flex;
+    height: rem(350px);
+    @include screen-lt(mobile) {
+        height: 25vh
+    }
 }
 

@@ -11,7 +11,7 @@ function getImage(image) {
     if(!image) {
          return null;
     }
-    return <img src={image} alt="img" />;
+    return <img className="ux-button__image" src={image} alt="img" />;
 }
 
 /**
@@ -24,15 +24,20 @@ function getImage(image) {
  * @param {string} size - button size
  * @param {string} type - type (submit, button, etc)
  * @param {string} image - pasted image into button
+ * @param {icon} icon - pasted icon into button
  * @returns {React.Component} - return button with all props
  */
-function Button({ onClick, className, children, disabled, bStyle, type, size, image }) {
+function Button({ onClick, className, children, disabled, bStyle, type, size, image, icon }) {
     return (
         <button
             onClick={onClick}
             type={type}
             disabled={disabled}
-            className={cx('ux-button', `ux-button__style_${bStyle}`, `ux-button__size_${size}`, className)}
+            className={cx('ux-button',
+                `ux-button__style_${bStyle}`,
+                `ux-button__size_${size}`,
+                `ux-button__icon_${icon}`,
+                className)}
         >
             {children}
             {getImage(image)}
@@ -48,6 +53,7 @@ Button.propTypes = {
     bStyle: PropTypes.oneOf(['void', 'fill']),
     disabled: PropTypes.bool,
     type: PropTypes.string,
+    icon: PropTypes.string,
     className: PropTypes.string,
 
 };
@@ -55,6 +61,7 @@ Button.propTypes = {
 Button.defaultProps = {
     size: 's',
     image: false,
+    icon: '',
     bStyle: 'void',
     disabled: false,
     className: '',

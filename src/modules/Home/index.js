@@ -38,7 +38,7 @@ class Home extends React.Component {
     render() {
         const { data, activeFilter, activeBot } = this.state;
         return (
-            <Column>
+            <Column className="content">
                 <Balance data={data}/>
                 <Charts activeFilter={activeFilter} activeBot={activeBot}/>
                 <BotList bots={data.bots} activeFilter={activeFilter} onChangeBot={this.onChangeBot} activeBot={activeBot}/>

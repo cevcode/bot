@@ -87,7 +87,8 @@ $rem-px-only: false !default;
 
 // Responsive settings
 $screenSizes: (
-        tablet: rem(750px),
+        tablet: 750px,
+        mobile: 500px,
 );
 
 @mixin screen-gt($name) {
@@ -105,10 +106,13 @@ $screenSizes: (
 @mixin base-sizes() {
   &__size {
     &_s {
-      width: rem(50px);
+      width: rem(70px);
     }
     &_m {
       width: rem(120px);
+      @include screen-lt(mobile) {
+        width: rem(140px);
+      }
     }
     &_full {
       width: 100%;

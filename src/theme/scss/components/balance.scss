@@ -1,5 +1,10 @@
+@import '../index.scss';
+
 .balance {
   padding: rem(0 30px);
+  @include screen-lt(mobile) {
+    height: 11%;
+  }
 
   &__data {
     align-items: flex-end;
@@ -10,5 +15,8 @@
     align-items: center;
     margin-bottom: rem(5px);
     max-width: rem(240px);
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
