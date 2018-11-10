@@ -1,4 +1,5 @@
 import React from 'react';
+import ls from 'local-storage'
 import { Column } from 'ui/Layout';
 import Balance from "../Balance"
 import Charts from "../Charts";
@@ -8,11 +9,10 @@ import Filter from "../Filter";
 class Home extends React.Component {
     constructor(props) {
         super(props);
-
         this.state = {
             data: [],
-            activeFilter: 'all_time',
-            activeBot: 'yellow_bot',
+            activeFilter: ls.get('activeFilterLocal') || 'all_time',
+            activeBot: ls.get('activeBotLocal') || 'yellow_bot',
         };
     }
 
@@ -31,10 +31,12 @@ class Home extends React.Component {
 
     onChangeFilter = activeFilter => {
         this.setState({ activeFilter });
+        ls.set('activeFilterLocal', activeFilter);
     };
 
     onChangeBot = activeBot => {
         this.setState({ activeBot });
+        ls.set('activeBotLocal', activeBot);
     };
     render() {
         const { data, activeFilter, activeBot } = this.state;
