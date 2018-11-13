@@ -1,9 +1,0 @@
-@import '../index.scss';
-
-.header {
-  padding: rem(50px 30px);
-  @include screen-lt(mobile) {
-    height: 9%;
-    padding: rem(30px);
-  }
-}
